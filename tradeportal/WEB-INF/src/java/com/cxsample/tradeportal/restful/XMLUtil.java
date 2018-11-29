@@ -90,7 +90,7 @@ public class XMLUtil
     	// add a custom sanitizer rule
     	//------------------------------------------------------------------------------------            
     	            CxSampleSanitizer customSanitizer = new CxSampleSanitizer(); 
-    	            queryStr = customSanitizer.CxSampleSanitizer(queryStr);
+    	            xml = customSanitizer.CxSampleSanitizer(xml);
     	//------------------------------------------------------------------------------------            
     	
         Document doc = getDocument(xml);

@@ -144,7 +144,7 @@ public class TransactionService {
     {
         List transactions=null;
         Session session=null;
-        CxSampleSanitizer customSanitizer = new CxSampleSanitizer(); 
+
         try{
             session = ConnectionFactory.getInstance().getSession();
             String queryStr = "from Transaction transaction where transaction.acctno ='" + acctno + "'";
@@ -165,7 +165,7 @@ public class TransactionService {
 //------------------------------------------------------------------------------------            
 // add a custom sanitizer rule
 //------------------------------------------------------------------------------------            
-            
+            CxSampleSanitizer customSanitizer = new CxSampleSanitizer(); 
             queryStr = customSanitizer.CxSampleSanitizer(queryStr);
 //------------------------------------------------------------------------------------            
             Query query = session.createQuery(queryStr);
