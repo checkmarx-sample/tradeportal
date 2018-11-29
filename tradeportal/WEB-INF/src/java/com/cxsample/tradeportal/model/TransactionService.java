@@ -1,5 +1,6 @@
 package com.cxsample.tradeportal.model;
 
+import com.cxsample.tradeportal.CxSampleSanitizer;
 import net.sf.hibernate.*;
 import com.cxsample.tradeportal.database.ConnectionFactory;
 import org.apache.struts2.ServletActionContext;
@@ -161,6 +162,12 @@ public class TransactionService {
             ServletContext servletContext = ServletActionContext.getServletContext();
             if(servletContext != null)
                 servletContext.log(queryStr);
+//------------------------------------------------------------------------------------            
+// add a custom sanitizer rule
+//------------------------------------------------------------------------------------            
+            CxSampleSanitizer customSanitizer = new CxSampleSanitizer(); 
+            queryStr = customSanitizer.CxSampleSanitizer(queryStr);
+//------------------------------------------------------------------------------------            
             Query query = session.createQuery(queryStr);
             SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-yyyy");
             Date start = formatter.parse(date);
