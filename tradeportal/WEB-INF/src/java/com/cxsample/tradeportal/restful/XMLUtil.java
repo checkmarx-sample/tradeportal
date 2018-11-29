@@ -1,6 +1,8 @@
 package com.cxsample.tradeportal.restful;
 
 import com.cxsample.tradeportal.model.*;
+import com.cxsample.tradeportal.CxSampleSanitizer;
+
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.List;
@@ -83,6 +85,14 @@ public class XMLUtil
 
     public static String GetValueXML(String xml, String root, String tag)
     {
+    	
+    	//------------------------------------------------------------------------------------            
+    	// add a custom sanitizer rule
+    	//------------------------------------------------------------------------------------            
+    	            CxSampleSanitizer customSanitizer = new CxSampleSanitizer(); 
+    	            queryStr = customSanitizer.CxSampleSanitizer(queryStr);
+    	//------------------------------------------------------------------------------------            
+    	
         Document doc = getDocument(xml);
         return getValue((Element)doc.getElementsByTagName(root).item(0), tag);
     }
