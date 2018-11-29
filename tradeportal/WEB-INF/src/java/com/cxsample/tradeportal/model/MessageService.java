@@ -138,16 +138,16 @@ public class MessageService
         //-----------------------------------------------------------
         //--uncomment to expose the SQL Inject Vulnerability
         //-----------------------------------------------------------
-//        String queryStr = "from Message message where message.username ='" + username + "' order by message.date desc";
-//        Query query = session.createQuery(queryStr);
-//        List messages = query.list();
+        String queryStr = "from Message message where message.username ='" + username + "' order by message.date desc";
+        Query query = session.createQuery(queryStr);
+        List messages = query.list();
         
         //-----------------------------------------------------------
         //--uncomment to fix the SQL Inject Vulnerability
         //-----------------------------------------------------------
-        String queryStr = "from Message message where message.username = ? order by message.date desc";
-        Query query = session.createQuery(queryStr);
-        List messages = query.setString(0, username).list();
+//        String queryStr = "from Message message where message.username = ? order by message.date desc";
+//        Query query = session.createQuery(queryStr);
+//        List messages = query.setString(0, username).list();
 
 //-------------------------------------------------------------------        
         
