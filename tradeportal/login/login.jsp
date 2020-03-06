@@ -80,10 +80,10 @@ response.setDateHeader ("Expires", 0); //prevents caching at the proxy server
                                             <c:choose>
                                                 <c:when test="${param.errorMsg != null}" >
 													<%-------XSS---------------------------------------------%>
-                                                     <%--<font color="red">${param.errorMsg}</font>--%>
+                                                     <font color="red">${param.errorMsg}</font>
                                                     
 													<%-------Try---------------------------------------------%>
-                                                   <font color="red"><c:out value="${param.errorMsg}"/></font> 
+                                                   <%--<font color="red"><c:out value="${param.errorMsg}"/></font>--%> 
 													<%-------Try---------------------------------------------%>
 													<%--<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>--%>
                                                     <%--<font color="red">${fn:escapeXml(param.errorMsg)}/></font>  --%>
