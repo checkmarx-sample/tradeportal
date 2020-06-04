@@ -1,0 +1,17 @@
+git clone https://github.com/checkmarx-sample/wg6.git
+git add .
+git commit -m "Add existing file"
+git push origin master
+
+mvn clean package
+
+REM 8.70.0
+REM E:\Software\8.8\plugins\Maven-8.70.0\checkmarx-maven-plugin-8.70.0.jar
+
+REM -Dfile is the actuallocation of the item 
+
+mvn install:install-file -Dfile="E:\Software\8.8\plugins\Maven-8.70.0\checkmarx-maven-plugin-8.70.0.jar" -DgroupId="com.checkmarx.maven" -DartifactId="checkmarx-maven-plugin" -Dversion="8.70.0" -Dpackaging="jar" -DgeneratePom=true
+----mvn install:install-file -Dfile="E:\Software\8.8\plugins\Maven-8.70.0\checkmarx-maven-plugin-8.70.0.jar" -DgroupId="com.checkmarx.maven" -DartifactId="checkmarx-maven-plugin" -Dversion="x.xx.x" -Dpackaging="jar" -DgeneratePom=true
+
+
+mvn checkmarx:scan
